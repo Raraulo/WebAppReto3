@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Realiza tu reservación en Dulce Vino y Masa para disfrutar de una experiencia gastronómica única.">
+    <meta name="keywords" content="reservación, restaurante, Dulce Vino y Masa, comida, mesa">
+    <title>Reservación - Dulce Vino y Masa</title>
+    <link rel="stylesheet" href="../css/css2.css">
+</head>
+<body>
+      <!-- Sección para la animación del logo 
+      <div class="logo-animation" id="logoAnimation">
+        <img src="../imagenes/milogo.jpg" alt="Logo" class="logo-animated" id="logoImage">
+        
+    </div>
+      <!-- Interruptor para cambiar entre modo claro y oscuro -->
+      <div class="theme-switcher">
+        <input type="checkbox" id="themeToggle">
+        <label for="themeToggle">🌙 / ☀️</label>
+    </div>
+
+    
+
+    <div class="container">
+        <!-- Sección de Selección de Mesa -->
+        <div id="reservation-selection">
+            <h2>Registro de Datos</h2>
+            <form id="tableSelectionForm" aria-labelledby="reservation-selection">
+                <label for="persons">Número de personas:</label>
+                <select id="persons" name="persons" required aria-describedby="persons-help">
+                    <option value="" disabled selected>Selecciona número de personas</option>
+                    <option value="1">1 persona</option>
+                    <option value="2">2 personas</option>
+                    <option value="3">3 personas</option>
+                    <option value="4">4 personas</option>
+                    <option value="5">5 personas</option>
+                    <option value="6">6 personas</option>
+                    <option value="7">7 personas</option>
+                    <option value="8">8 personas</option>
+                    <option value="9">9 personas</option>
+                    <option value="10">10 personas</option>
+                </select>
+
+                <label for="date">Fecha:</label>
+                <input type="date" id="date" name="date" required aria-describedby="date-help">
+
+                <label for="hour">Hora:</label>
+                <input type="time" id="hour" name="hour" required aria-describedby="hour-help">
+
+                <button type="submit">Buscar mesas disponibles</button>
+            </form>
+        </div>
+
+<!-- Botón para reproducir el video -->
+<button id="videoBtn">Ver Video</button>
+
+<!-- Modal con video -->
+<div id="videoModal" class="hidden">
+    <div id="videoModalContent">
+        <button id="closeVideoBtn" class="close-btn">X</button>
+        <iframe id="video" width="100%" height="100%" src="https://www.youtube.com/embed/ywrLSeDVH5U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+        <!-- Sección de Disponibilidad de Mesas -->
+        <div id="availableTables" class="hidden">
+            <h3>Mesas disponibles</h3>
+            <div id="tablesList">
+                <!-- Las mesas disponibles se mostrarán aquí -->
+            </div>
+        </div>
+
+        <!-- Sección de Confirmación de Datos -->
+        <div id="reservation-confirmation" class="hidden">
+            <h2>Confirmar Reservación</h2>
+            <div class="info-box" id="reservationDetails">
+                <!-- Detalles de la reservación se mostrarán aquí -->
+            </div>
+            <form id="reservationForm" aria-labelledby="reservation-confirmation">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" required aria-describedby="name-help">
+
+                <label for="surname">Apellido(s)</label>
+                <input type="text" id="surname" name="surname" required>
+
+                <label for="cedula">Cédula</label>
+                <input type="text" id="cedula" name="cedula" required pattern="\d{10}" title="La cédula debe tener 10 dígitos numéricos.">
+
+                <label for="phone">Número de teléfono</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="El teléfono debe tener 10 dígitos numéricos.">
+
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="occasion">Ocasión</label>
+                <select id="occasion" name="occasion" required>
+                    <option value="" disabled selected>Selecciona una opción...</option>
+                    <option value="cumpleaños">Cumpleaños</option>
+                    <option value="aniversario">Aniversario</option>
+                    <option value="negocios">Negocios</option>
+                    <option value="otro">Otro</option>
+                </select>
+
+                <label for="specialRequest">Agregar una solicitud especial</label>
+                <textarea id="specialRequest" name="specialRequest" aria-describedby="specialRequest-help"></textarea>
+
+                <button type="submit">Confirmar la reservación</button>
+            </form>
+        </div>
+    </div>
+</form>
+
+
+
+
+    <script src="../js/javas2.js"></script>
+</body>
+</html>
+
+

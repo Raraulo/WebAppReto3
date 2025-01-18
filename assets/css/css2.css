@@ -1,0 +1,455 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.selectTableBtn.selected {
+    background-color: #388e3c;
+    color: white;
+}
+
+.selectTableBtn:hover {
+    background-color: #2c6c2b;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    color: #555;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #d32f2f;
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #b71c1c;
+}
+
+.hidden {
+    display: none;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.info-box {
+    background-color: #e0f7fa;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #00695c;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.table-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.table-item button {
+    background-color: #388e3c;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.table-item button:hover {
+    background-color: #2c6c2b;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    button {
+        padding: 12px;
+    }
+
+    input, select, textarea {
+        font-size: 14px;
+    }
+}
+
+/* Contenedor de la animación del logo */
+.logo-animation {
+    position: fixed; /* Fija el logo en la pantalla */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Alineación perfecta en el centro */
+    background-color: black; /* Fondo negro (opcional) */
+    z-index: 10; /* Asegura que el logo esté por encima de otros elementos */
+    height: 100%; /* Ocupa todo el alto de la pantalla */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    display: flex; /* Utiliza flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    opacity: 1; /* Inicialmente visible */
+}
+
+/* Estilo del logo que se usará en la animación */
+.logo-animated {
+    max-height: 4cm; /* Altura máxima del logo */
+    filter: invert(1); /* Invertir colores del logo (opcional) */
+    transition: transform 2s ease-out, opacity 2s ease-out; /* Transiciones suaves */
+}
+
+/* Estilos para el interruptor de tema */
+.theme-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-switcher input {
+    display: none;
+}
+
+.theme-switcher label {
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+/* Estilos del modo oscuro */
+body.dark-mode {
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+body.dark-mode .container {
+    background-color: #444;
+    color: #f5f5f5;
+}
+
+body.dark-mode button {
+    background-color: #d32f2f;
+    color: white;
+}
+
+body.dark-mode .info-box {
+    background-color: #00796b;
+    color: white;
+}
+
+body.dark-mode label, body.dark-mode select, body.dark-mode input, body.dark-mode textarea {
+    background-color: #555;
+    color: white;
+    border: 1px solid #888;
+}
+
+/* Selección de mesas en modo oscuro */
+body.dark-mode .table-item {
+    background-color: #555;
+    color: #f5f5f5;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #888;
+}
+
+body.dark-mode .table-item p {
+    margin: 0;
+}
+
+body.dark-mode .table-item button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .table-item button:hover {
+    background-color: #004d40;
+}
+
+/* Estilos de la animación para el interruptor */
+.theme-switcher input:checked + label {
+    transform: rotate(180deg);
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .theme-switcher {
+        top: 10px;
+        right: 10px;
+        font-size: 18px;
+    }
+
+    .theme-switcher label {
+        font-size: 20px;
+    }
+
+    body.dark-mode {
+        background-color: #222;
+        color: #e0e0e0;
+    }
+
+    body.dark-mode .container {
+        background-color: #333;
+        color: #e0e0e0;
+    }
+
+    body.dark-mode button {
+        background-color: #c62828;
+        color: white;
+    }
+
+    body.dark-mode .info-box {
+        background-color: #004d40;
+        color: white;
+    }
+
+    body.dark-mode label, body.dark-mode select, body.dark-mode input, body.dark-mode textarea {
+        background-color: #444;
+        color: white;
+        border: 1px solid #666;
+    }
+
+    /* Asegurando que el texto "Selecciona una mesa y una hora" sea visible en modo oscuro */
+    body.dark-mode .container h2 {
+        color: white;
+    }
+}
+
+/* Estilos para pantallas medianas */
+@media (max-width: 1024px) and (min-width: 601px) {
+    .theme-switcher {
+        top: 15px;
+        right: 15px;
+    }
+
+    .theme-switcher label {
+        font-size: 22px;
+    }
+
+    body.dark-mode {
+        background-color: #333;
+        color: #f5f5f5;
+    }
+
+    body.dark-mode .container {
+        background-color: #444;
+        color: #f5f5f5;
+    }
+    
+    body.dark-mode button {
+        background-color: #d32f2f;
+        color: white;
+    }
+
+    body.dark-mode .info-box {
+        background-color: #00796b;
+        color: white;
+    }
+
+    body.dark-mode label, body.dark-mode select, body.dark-mode input, body.dark-mode textarea {
+        background-color: #555;
+        color: white;
+        border: 1px solid #888;
+    }
+
+    /* Asegurando que el texto "Selecciona una mesa y una hora" sea visible en modo oscuro */
+    body.dark-mode .container h2 {
+        color: white;
+    }
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1025px) {
+    .theme-switcher {
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+    }
+
+    .theme-switcher label {
+        font-size: 24px;
+    }
+
+    body.dark-mode {
+        background-color: #333;
+        color: #f5f5f5;
+    }
+
+    body.dark-mode .container {
+        background-color: #444;
+        color: #f5f5f5;
+    }
+
+    body.dark-mode button {
+        background-color: #d32f2f;
+        color: white;
+    }
+
+    body.dark-mode .info-box {
+        background-color: #00796b;
+        color: white;
+    }
+
+    body.dark-mode label, body.dark-mode select, body.dark-mode input, body.dark-mode textarea {
+        background-color: #555;
+        color: white;
+        border: 1px solid #888;
+    }
+
+    /* Asegurando que el texto "Selecciona una mesa y una hora" sea visible en modo oscuro */
+    body.dark-mode .container h2 {
+        color: white;
+    }
+}
+/* Estilos para el botón fuera del cuadro de "Buscar mesas" */
+#videoBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#videoBtn:hover {
+    background-color: #2c6c2b;
+}
+/* Modal con el video */
+#videoModal {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor circular con el video */
+#videoModalContent {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    overflow: hidden; /* Esconde cualquier contenido que sobresalga */
+}
+
+/* Estilo del iframe (video) */
+#videoModal iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Botón de cierre "X" */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px; /* Tamaño del círculo */
+    height: 40px; /* Tamaño del círculo */
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo opaco */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Hace que el botón sea redondo */
+    cursor: pointer;
+    font-size: 22px; /* Tamaño de la "X" */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Color de fondo al pasar el ratón */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    button {
+        padding: 12px;
+    }
+
+    input, select, textarea {
+        font-size: 14px;
+    }
+
+    #videoModalContent {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    #videoModalContent {
+        width: 80%;
+        height: 80%;
+    }
+}
+
+@media (min-width: 1025px) {
+    #videoModalContent {
+        width: 70%;
+        height: 70%;
+    }
+}

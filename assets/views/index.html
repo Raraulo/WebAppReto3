@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/css.css">
+    <title>DULCE VINO Y MASA</title>
+</head>
+<body>
+    
+        <!-- Sección para la animación del logo -->
+        <div class="logo-animation" id="logoAnimation">
+            <img src="../imagenes/milogo.jpg" alt="Logo" class="logo-animated" id="logoImage">
+        </div>
+
+    <div class="barra">
+        <div class="menu-hamburguesa" onclick="toggleMenu()">
+            &#9776; <!-- Icono de menú hamburguesa -->
+        </div>
+        <img src="../imagenes/milogo.jpg" alt="Logo" class="logo">
+    </div>
+    
+
+    <section class="inicio">
+        <div class="contenido-inicio">
+            <h1>DULCE VINO Y MASA</h1>
+        </div>
+    </section>
+
+    <section id="inicio-cafe" class="inicio-cafe cafe">
+        <p class="texto-bienvenida bold">¡Hola! Somos Dulce Vino y Masa.</p>
+        <p class="texto-bienvenida">¡Bienvenidos! Nos complace recibirlos en un oasis de sabores exquisitos, donde la elegancia y la creatividad se entrelazan en cada bocado. Permítanme seducir sus sentidos con nuestras pizzas artesanales, postres delicados y cócteles de autor. Aquí, cada detalle está pensado para brindarles una experiencia gastronómica sublime.</p>
+        <p class="texto-bienvenida">¡Disfruten de su velada!</p>
+    </section>
+
+    <section id="pizzas" class="seccion blanca">
+        <div class="pizza-section">
+            <div class="pizza-text">
+                <h1>Sabor, Elegancia, Tradición, Innovación</h1>
+                <p>Nuestras pizzas son una fusión de sabores innovadores y clásicos, presentadas de manera exquisita para deleitar no solo el paladar, sino también la vista...</p>
+                <!-- Cambiar enlace al archivo index3.html -->
+                <a href="../views/index3.html">
+                    <button class="menu-button">NUESTRO MENÚ</button>
+                </a>
+            </div>
+            <div class="pizza-image">
+                <img src="../imagenes/pizza.png" alt="Pizza variada" class="scroll-image">
+            </div>
+        </div>
+    </section>
+    
+    <section id="postres" class="seccion cafe-chocolate">
+        <div class="contenido">
+            <img src="../imagenes/postre.jpg" alt="Imagen de postres">
+            <div class="texto">
+                <h2>Delicia, Creatividad, Textura, Sorpresa</h2>
+                <p>Sumérgete en un mundo de sabores donde la dulzura se mezcla con una sutil sorpresa que despierta los sentidos. Cada bocado es un delicado abrazo que acaricia el paladar, ofreciendo una experiencia única y memorable. Déjate llevar por esta dulce travesía de sensaciones</p>
+                <!-- Cambiar enlace al archivo index3.html -->
+                <a href="../views/index3.html">
+                    <button>NUESTRO MENÚ</button>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="cocteles" class="seccion coctel" style="background-image: url('../imagenes/coctel.jpg');">
+        <div class="contenido">
+            <h1>Pasión, Sorprendente, Esencia, Estilo</h1>
+            <p>En Dulce Vino y Masa, los cócteles son una invitación a la aventura. Cada mezcla es un seductor juego de sabores audaces y sorprendentes, donde la pasión se encuentra con la creatividad. Con ingredientes frescos y un toque de atrevida innovación, nuestros cócteles están diseñados para encender sus sentidos y elevar cada momento. ¡Prepárense para disfrutar de una experiencia vibrante en cada sorbo!</p>
+            <!-- Cambiar enlace al archivo index3.html -->
+            <a href="../views/index3.html" >
+                <button class="menu-button">NUESTRO MENÚ</button>
+            </a>
+        </div>
+    </section>
+    
+    
+    <nav class="menu" id="menu">
+        <ul>
+            <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
+            <li><a href="#inicio-cafe" onclick="closeMenu()">Inicio</a></li>
+            <li><a href="#pizzas" onclick="closeMenu()">Pizzas</a></li>
+            <li><a href="#postres" onclick="closeMenu()">Postres</a></li>
+            <li><a href="#cocteles" onclick="closeMenu()">Cócteles</a></li>
+            <li><a href="../views/intranet.html" onclick="closeMenu()">Login</a></li>
+
+        </ul>
+    </nav>
+
+    <footer class="seccion rosado">
+        <div class="nombre">
+            <h1>Dulce Vino y Masa</h1>
+        </div>
+        <div class="boton-reserva">
+            <a href="../views/index2.html">
+                <button class="reserva-button">¡RESERVA YA!</button>
+            </a>
+        </div>
+        <div class="informacion">
+            <div class="contacto">
+                <h3>Contacto</h3>
+                <p>hola@unsitiogenial.es</p>
+            </div>
+            <div class="redes">
+                <h3>Redes Sociales</h3>
+                <p>Instagram | Facebook | Twitter | LinkedIn</p>
+            </div>
+            <div class="ubicacion">
+                <h3>Ubicación</h3>
+                <p>Avenida La Sagrada,<br> Albacete,<br> C.P. 12345</p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="../js/javas.js"></script>
+
+</body>
+</html>

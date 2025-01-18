@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/css3.css">
+    <title>MENÚ DULCE VINO Y MASA</title>
+</head>
+<body>
+
+    <!-- Sección para la animación del logo -->
+    <div class="logo-animation" id="logoAnimation">
+        <img src="../imagenes/milogo.jpg" alt="Logo" class="logo-animated" id="logoImage">
+    </div>
+
+    <!-- Barra de navegación -->
+    <div class="barra">
+        <img src="../imagenes/milogo.jpg" alt="Logo" class="logo">
+        <!-- Carrito de compras -->
+         
+        <div class="carrito">
+            <img src="../imagenes/carro.jpg" alt="Carrito" class="carrito-icono" onclick="verCarrito()">
+            <span id="carrito-cantidad">0</span>
+        </div>
+    </div>
+    
+
+    <!-- Sección de Pizzas -->
+    <div class="seccion-pizzas">
+        <div class="galeria">
+            <!-- Pizzas -->
+            <div class="producto">
+                <img src="../imagenes/pizzagrande.jpg" alt="Pizza" class="imagen" onclick="verImagenGrande(this)">
+                <p>Pizza Especial </p>
+                <p class="descripcion">El placer de la pizza de la casa</p>
+                <p class="precio">Precio: $9.99</p>
+                <label for="cantidadPizza">Cantidad: </label>
+                <input type="number" id="cantidadPizza" name="cantidadPizza" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Pizza Especial', 9.99, document.getElementById('cantidadPizza').value)">Añadir al carrito</button>
+            </div>
+
+            <!-- Pizza 4 Quesos -->
+            <div class="producto">
+                <img src="../imagenes/Pizza4quesos.jpeg" alt="Pizza 4 Quesos" class="imagen" onclick="verImagenGrande(this)">
+                <p>Pizza 4 Quesos</p>
+                <p class="descripcion">Mozzarella, cheddar, parmesano y gorgonzola</p>
+                <p class="precio">Precio: $12.99</p>
+                <label for="cantidadPizza4quesos">Cantidad: </label>
+                <input type="number" id="cantidadPizza4quesos" name="cantidadPizza4quesos" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Pizza 4 Quesos', 12.99, document.getElementById('cantidadPizza4quesos').value)">Añadir al carrito</button>
+            </div>
+
+            <!-- Pizza Trufa -->
+            <div class="producto">
+                <img src="../imagenes/pizzatrufa.jpg" alt="Pizza Trufa" class="imagen" onclick="verImagenGrande(this)">
+                <p>Pizza Trufa</p>
+                <p class="descripcion">Setas, trufa y mozzarella</p>
+                <p class="precio">Precio: $14.99</p>
+                <label for="cantidadPizzaTrufa">Cantidad: </label>
+                <input type="number" id="cantidadPizzaTrufa" name="cantidadPizzaTrufa" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Pizza Trufa', 14.99, document.getElementById('cantidadPizzaTrufa').value)">Añadir al carrito</button>
+            </div>
+
+            <!-- Pizza Wagyu -->
+            <div class="producto">
+                <img src="../imagenes/pizzawagyu.jpg" alt="Pizza Wagyu" class="imagen" onclick="verImagenGrande(this)">
+                <p>Pizza Wagyu</p>
+                <p class="descripcion">Carne Wagyu, cebolla caramelizada y mozzarella</p>
+                <p class="precio">Precio: $19.99</p>
+                <label for="cantidadPizzaWagyu">Cantidad: </label>
+                <input type="number" id="cantidadPizzaWagyu" name="cantidadPizzaWagyu" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Pizza Wagyu', 19.99, document.getElementById('cantidadPizzaWagyu').value)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Postres -->
+    <div class="seccion-postres">
+        <div class="galeria">
+            <!-- Postres -->
+            <div class="producto">
+                <img src="../imagenes/postregrande.jpg" alt="Postre" class="imagen" onclick="verImagenGrande(this)">
+                <p>Tres leches</p>
+                <p class="descripcion">Un 3 leches suave y cremoso, un abrazo dulce que se derrite en tu paladar.</p>
+                <p class="precio">Precio: $7.99</p>
+                <label for="cantidadPostres">Cantidad: </label>
+                <input type="number" id="cantidadPostres" name="cantidadPostres" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Tres leches', 7.99, document.getElementById('cantidadPostres').value)">Añadir al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="../imagenes/lemonpie.jpg" alt="Lemon Pie" class="imagen" onclick="verImagenGrande(this)">
+                <p>Lemon Pie</p>
+                <p class="descripcion">Combina frescura y dulzura en cada bocado, una explosión cítrica de placer.</p>
+                <p class="precio">Precio: $2.99</p>
+                <label for="cantidadLemonPie">Cantidad: </label>
+                <input type="number" id="cantidadLemonPie" name="cantidadLemonPie" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Lemon Pie', 2.99, document.getElementById('cantidadLemonPie').value)">Añadir al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="../imagenes/tiramisu.jpg" alt="Tiramisu" class="imagen" onclick="verImagenGrande(this)">
+                <p>Tiramisu</p>
+                <p class="descripcion">El tiramisú que eleva tus sentidos, un abrazo dulce y cremoso en cada capa</p>
+                <p class="precio">Precio: $4.99</p>
+                <label for="cantidadTiramisu">Cantidad: </label>
+                <input type="number" id="cantidadTiramisu" name="cantidadTiramisu" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Tiramisu', 4.99, document.getElementById('cantidadTiramisu').value)">Añadir al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="../imagenes/frambuesa.jpg" alt="Cake Frutos Rojos" class="imagen" onclick="verImagenGrande(this)">
+                <p>Cake Frutos Rojos</p>
+                <p class="descripcion">Un pastel de frutos rojos tan irresistible que conquista todos los sentidos.</p>
+                <p class="precio">Precio: $9.99</p>
+                <label for="cantidadCakeFrutosRojos">Cantidad: </label>
+                <input type="number" id="cantidadCakeFrutosRojos" name="cantidadCakeFrutosRojos" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Cake Frutos Rojos', 9.99, document.getElementById('cantidadCakeFrutosRojos').value)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Cócteles -->
+    <div class="seccion-cocteles">
+        <div class="galeria">
+            <!-- Cócteles -->
+            <div class="producto">
+                <img src="../imagenes/daiquiri.jpg" alt="Cóctel Daiquirí" class="imagen" onclick="verImagenGrande(this)">
+                <p>Daiquirí</p>
+                <p class="descripcion">Ron blanco, azúcar, lima, hielo.</p>
+                <p class="precio">Precio: $15</p>
+                <label for="cantidadDaiquiri">Cantidad: </label>
+                <input type="number" id="cantidadDaiquiri" name="cantidadDaiquiri" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Daiquiri', 15.00, document.getElementById('cantidadDaiquiri').value)">Añadir al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="../imagenes/mojito.jpg" alt="Cóctel Mojito" class="imagen" onclick="verImagenGrande(this)">
+                <p>Mojito</p>
+                <p class="descripcion">Ron blanco, menta, azúcar, lima, soda, hielo.</p>
+                <p class="precio">Precio: $4.99</p>
+                <label for="cantidadMojito">Cantidad: </label>
+                <input type="number" id="cantidadMojito" name="cantidadMojito" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Mojito', 4.99, document.getElementById('cantidadMojito').value)">Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="../imagenes/martini.jpg" alt="Cóctel Martini" class="imagen" onclick="verImagenGrande(this)">
+                <p>Martini</p>
+                <p class="descripcion">Ginebra, vermut seco, hielo, aceituna o twist de limón.</p>
+                <p class="precio">Precio: $12.99</p>
+                <label for="cantidadMartini">Cantidad: </label>
+                <input type="number" id="cantidadMartini" name="cantidadMartini" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Martini', 12.99, document.getElementById('cantidadMartini').value)">Añadir al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="../imagenes/coctelgrande.png" alt="Cóctel Tequila Sunrise" class="imagen" onclick="verImagenGrande(this)">
+                <p>Tequila Sunrise</p>
+                <p class="descripcion">Tequila, jugo de limón, chile en polvo, granadina, hielo.</p>
+                <p class="precio">Precio: $9.99</p>
+                <label for="cantidadTequilaSunrise">Cantidad: </label>
+                <input type="number" id="cantidadTequilaSunrise" name="cantidadTequilaSunrise" min="1" value="1" oninput="validarCantidad(this)">
+                <button class="agregar-carrito" onclick="agregarAlCarrito('Tequila Sunrise', 9.99, document.getElementById('cantidadTequilaSunrise').value)">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página con información de contacto, redes sociales y ubicación -->
+    <footer class="seccion rosado">
+        <div class="nombre">
+            <h1>Dulce Vino y Masa</h1>
+        </div>
+        <div class="boton-reserva">
+            <a href="../views/index2.html">
+                <button class="reserva-button">¡RESERVA YA!</button>
+            </a>
+        </div>
+        <div class="informacion">
+            <div class="contacto">
+                <h3>Contacto</h3>
+                <p>hola@unsitiogenial.es</p>
+            </div>
+            <div class="redes">
+                <h3>Redes Sociales</h3>
+                <p>Instagram | Facebook | Twitter | LinkedIn</p>
+            </div>
+            <div class="ubicacion">
+                <h3>Ubicación</h3>
+                <p>Avenida La Sagrada,<br> Albacete,<br> C.P. 12345</p>
+            </div>
+        </div>
+    </footer>
+       <!-- Carrito desplegable -->
+       <div id="carrito-contenido" class="carrito-contenido" style="display: none;">
+        <h3>Tu carrito</h3>
+        <div id="carrito-detalles"></div>
+        <div id="carrito-total"></div>
+        <button onclick="cerrarCarrito()">Cerrar carrito</button>
+        <!--<button onclick="finalizarCompra()">Comprar</button> -->
+        <button onclick="window.location.href='../views/index2.html'">Comprar</button>
+
+    </div>
+
+
+    <script src="../js/javas3.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet - Dulce Vino y Masa</title>
+    <style>
+        /* Estilos comunes */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"], /* Cambiado a "text" en lugar de "email" */
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success-message {
+            color: green;
+            font-size: 14px;
+        }
+
+        .support-message {
+            color: orange;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Estilos para el modo claro */
+        body.light-mode {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .login-container.light-mode {
+            background-color: #fff;
+        }
+
+        /* Estilos para el modo oscuro */
+        body.dark-mode {
+            background-color: #121212;
+            color: #f4f4f4;
+        }
+
+        .login-container.dark-mode {
+            background-color: #1e1e1e;
+            color: #f4f4f4;
+        }
+
+        /* Estilo del botón para cambiar de modo */
+        .mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Estilo de la herramienta de soporte */
+        .support-icon {
+            font-size: 24px;
+            color: #f39c12;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <button class="mode-toggle" id="modeToggle">🌙</button>
+
+    <div class="login-container">
+        <h1>Iniciar sesión</h1>
+        <form id="loginForm">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        // Cuentas predefinidas
+        const accounts = [
+            { username: "admin", password: "admin123" },
+            { username: "trabajador1", password: "trabajador123" }
+        ];
+
+        // Contador de intentos fallidos
+        let failedAttempts = 0;
+
+        // Lógica para manejar el envío del formulario
+        document.getElementById('loginForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = ''; // Limpiar los mensajes previos
+
+            // Verificar si el usuario y la contraseña coinciden con alguna cuenta predefinida
+            const account = accounts.find(acc => acc.username === username && acc.password === password);
+
+            if (account) {
+    // Si las credenciales son correctas
+    messageDiv.classList.add('success-message');
+    messageDiv.innerHTML = 'Login exitoso. Redirigiendo...';
+    // Redirigir después de unos segundos si el login es exitoso
+    setTimeout(() => {
+        window.location.href = 'http://www.reto3.somee.com/'; // Cambiado a la URL deseada
+    }, 2000);
+    
+            } else {
+                // Si las credenciales son incorrectas
+                failedAttempts++;
+
+                // Mostrar mensaje según el número de intentos fallidos
+                if (failedAttempts < 3) {
+                    messageDiv.classList.add('error-message');
+                    messageDiv.innerHTML = 'Usuario o contraseña incorrectos. Intento ' + failedAttempts + ' de 3.';
+                } else {
+                    messageDiv.classList.add('error-message');
+                    messageDiv.innerHTML = 'Demasiados intentos fallidos. ';
+                    const supportMessage = document.createElement('div');
+                    supportMessage.classList.add('support-message');
+                    supportMessage.innerHTML = 'Por favor, contacte con el soporte <span class="support-icon">🔧</span>';
+                    messageDiv.appendChild(supportMessage);
+
+                    // Redirigir a la página de soporte
+                    setTimeout(() => {
+                        window.location.href = './soporte.html'; // Asegúrate de que la ruta esté correcta
+                    }, 3000);
+                }
+            }
+        });
+
+        // Lógica para alternar entre el modo claro y oscuro
+        const modeToggleButton = document.getElementById('modeToggle');
+        modeToggleButton.addEventListener('click', () => {
+            const body = document.body;
+            const loginContainer = document.querySelector('.login-container');
+
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                loginContainer.classList.remove('light-mode');
+                loginContainer.classList.add('dark-mode');
+                modeToggleButton.textContent = '☀️'; // Cambio de ícono a modo claro
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                loginContainer.classList.remove('dark-mode');
+                loginContainer.classList.add('light-mode');
+                modeToggleButton.textContent = '🌙'; // Cambio de ícono a modo oscuro
+            }
+        });
+    </script>
+</body>
+</html>

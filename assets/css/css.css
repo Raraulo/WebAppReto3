@@ -1,0 +1,596 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.barra {
+    background-color: black;
+    height: 2cm;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centramos todo dentro de la barra */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 0 20px;
+}
+
+.menu-hamburguesa {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.logo {
+    max-height: 80%; /* Ajusta la altura máxima según sea necesario */
+    border-radius: 15px; /* Bordes redondeados */
+    filter: invert(1); /* Invierte los colores del logo */
+}
+
+
+/* Media Queries */
+
+/* Pantallas medianas */
+@media (max-width: 1024px) {
+    .logo {
+        max-height: 70%; /* Reducir un poco el tamaño en pantallas medianas */
+    }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 768px) {
+    .logo {
+        max-height: 60%; /* Reducir aún más el tamaño en pantallas pequeñas */
+    }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .logo {
+        max-height: 50%; /* Reducir el tamaño en pantallas muy pequeñas */
+    }
+}
+
+/* Sección de Inicio */
+.inicio {
+    background-image: url('../imagenes/inicio.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.contenido-inicio {
+    position: absolute;
+    z-index: 2;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.contenido-inicio h1 {
+    font-size: 100px;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 0 black;
+}
+
+/* Nueva sección de Inicio Café */
+.inicio-cafe {
+    background-color: #382c24;
+    padding: 50px 20px;
+    height: 45vh; /* Altura reducida en 2 cm */
+    display: flex;
+    flex-direction: column; /* Coloca el contenido en columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+}
+
+.texto-bienvenida {
+    color: white;
+    font-size: 20px; /* Tamaño actual */
+    text-align: center; /* Centra el texto */
+    margin: 10px 0; /* Espacio entre los párrafos */
+}
+.texto-bienvenida.bold {
+    font-size: 40px; /* Doble del tamaño original */
+    font-weight: bold; /* Negrita */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .texto-bienvenida {
+        font-size: 18px; /* Tamaño ajustado para pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    .texto-bienvenida {
+        font-size: 16px; /* Tamaño ajustado para pantallas pequeñas */
+    }
+}
+
+
+/* Estilos del menú */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Cambiado a izquierda */
+    width: 250px;
+    height: 100%;
+    background-color: #8B4513;
+    transition: left 0.3s ease;
+    z-index: 2;
+}
+
+.menu.active {
+    left: 0; /* Despliegue hacia la derecha */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.menu li {
+    margin: 20px 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+/* Secciones adicionales */
+.seccion {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.cafe-chocolate {
+    background-color: #660000;
+    color: white;
+}
+
+.blanca {
+    background-color: white;
+    color: black;
+}
+
+.coctel {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+.rosado {
+    background-color: #FFC0CB;
+    color: black;
+}
+
+/* Sección Pizza */
+.pizza-section {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrando todo */
+    padding: 50px;
+    background-color: #fff;
+    flex-wrap: wrap;
+}
+
+.pizza-text {
+    max-width: 50%;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.pizza-text h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    font-weight: bold;
+    color: #333;
+}
+
+.pizza-text p {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 20px 0;
+}
+
+.menu-button {
+    background-color: #f8b4c7;
+    color: #333;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.pizza-image {
+    display: flex;
+    justify-content: center; /* Centrando la imagen */
+}
+.scroll-image {
+    width: 400px; /* Ajusta el tamaño según sea necesario */
+    transition: transform 0.3s ease; /* Suaviza la rotación */
+}
+
+.pizza-image img {
+    width: 400px;
+    border-radius: 10px;
+}
+
+/* Sección Postres */
+#postres {
+    background-color: #8B0000;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+#postres .contenido {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    flex-direction: column;
+}
+
+#postres img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#postres .texto {
+    width: 100%;
+}
+
+#postres h2 {
+    font-size: 2.5rem;
+    color: #FFC0CB;
+    margin-bottom: 20px;
+}
+
+#postres p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+#postres button {
+    background-color: #FFC0CB;
+    border: none;
+    padding: 10px 20px;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#postres button:hover {
+    background-color: #ff99b5;
+}
+
+/* Media Queries */
+
+/* Pantallas medianas */
+@media (max-width: 1024px) {
+    .pizza-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pizza-text {
+        max-width: 80%;
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .pizza-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .menu-button {
+        padding: 10px 25px;
+    }
+
+    .pizza-image img {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contenido-inicio h1 {
+        font-size: 50px;
+    }
+
+    .izquierda {
+        font-size: 18px;
+    }
+
+    .derecha {
+        font-size: 28px;
+    }
+
+    .menu-hamburguesa {
+        font-size: 24px;
+    }
+
+    .menu {
+        width: 200px;
+    }
+
+    .menu a {
+        font-size: 20px;
+    }
+
+    #postres .contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #postres img {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    #postres .texto {
+        width: 100%;
+    }
+
+    #postres h2 {
+        font-size: 2rem;
+    }
+
+    #postres p {
+        font-size: 1rem;
+    }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 480px) {
+    .contenido-inicio h1 {
+        font-size: 30px;
+    }
+
+    .izquierda {
+        font-size: 16px;
+    }
+
+    .derecha {
+        font-size: 24px;
+    }
+
+    .menu-hamburguesa {
+        font-size: 20px;
+    }
+
+    .menu {
+        width: 180px;
+    }
+
+    .menu a {
+        font-size: 16px;
+    }
+
+    .pizza-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .pizza-text p {
+        font-size: 0.9rem;
+    }
+
+    .menu-button {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+
+    #postres h2 {
+        font-size: 1.5rem;
+    }
+
+    #postres p {
+        font-size: 0.9rem;
+    }
+
+    #postres button {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+
+
+/* Sección Cócteles */
+.coctel {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrando todo */
+    padding: 50px;
+    background-image: url('coctel.jpg'); /* Cambia esto a la ruta de tu imagen */
+    background-size: cover; /* Asegúrate de que la imagen cubra toda la sección */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+    color: white; /* Color del texto */
+    flex-wrap: wrap; /* Permite que el contenido se ajuste en múltiples líneas */
+    height: calc(100vh - 7cm); /* Altura reducida */
+}
+
+.contenido {
+    max-width: 600px; /* Máximo ancho del contenido */
+    text-align: center; /* Centrar el texto */
+    backdrop-filter: rgba(0, 0, 0, 0.5); /* Añade un efecto de fondo semi-transparente para mejorar la legibilidad */
+}
+
+/* Estilos de texto */
+.contenido h1 {
+    font-size: 3rem; /* Tamaño del encabezado */
+    line-height: 1.2; /* Espaciado entre líneas */
+    font-weight: bold; /* Negrita */
+    color: #fff; /* Color del texto */
+}
+
+.contenido p {
+    font-size: 1.1rem; /* Tamaño del párrafo */
+    color: #ddd; /* Color más claro para mejor contraste */
+    margin: 20px 0; /* Espacio alrededor del párrafo */
+}
+
+/* Estilo del botón */
+.menu-button {
+    background-color: #f8b4c7; /* Fondo del botón */
+    color: #333; /* Color del texto del botón */
+    padding: 15px 30px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente del botón */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    margin-top: 20px; /* Espacio arriba del botón */
+    transition: background-color 0.3s; /* Transición suave para el color */
+}
+
+.menu-button:hover {
+    background-color: #ff99b5; /* Color al pasar el ratón */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .contenido h1 {
+        font-size: 2.5rem; /* Ajuste para pantallas medianas */
+    }
+
+    .contenido p {
+        font-size: 1rem; /* Ajuste para pantallas medianas */
+    }
+
+    .menu-button {
+        padding: 10px 20px; /* Ajusta el tamaño del botón en pantallas medianas */
+        font-size: 0.9rem; /* Ajusta el tamaño del texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .contenido h1 {
+        font-size: 2rem; /* Ajuste para pantallas pequeñas */
+    }
+
+    .contenido p {
+        font-size: 0.9rem; /* Ajuste para pantallas pequeñas */
+    }
+
+    .menu-button {
+        padding: 8px 16px; /* Ajusta el tamaño del botón en pantallas pequeñas */
+        font-size: 0.8rem; /* Ajusta el tamaño del texto */
+    }
+}
+
+.pie-pagina {
+    background-color: #8B4513; /* Color de fondo */
+    color: white;
+    padding: 20px;
+    text-align: left;
+}
+
+.nombre {
+    font-size: 2rem; /* Tamaño grande para el nombre */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.boton-reserva {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.reserva-button {
+    background-color: #f67389; /* Fondo blando */
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem; /* Texto más pequeño */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reserva-button:hover {
+    background-color: #7e2c42; /* Cambia el color al pasar el ratón */
+}
+
+.informacion {
+    display: flex;
+    justify-content: space-between; /* Espacio horizontal entre elementos */
+    margin-top: 20px;
+}
+
+.informacion div {
+    flex: 1; /* Cada div ocupa el mismo espacio */
+    padding: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .nombre {
+        font-size: 2rem; /* Reduce el tamaño en pantallas más pequeñas */
+    }
+
+    .informacion {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: center; /* Centra el contenido */
+    }
+
+    .informacion div {
+        text-align: center; /* Centra el texto */
+        margin-bottom: 20px; /* Espacio entre elementos */
+    }
+}
+
+
+
+/* Contenedor de la animación del logo */
+.logo-animation {
+    position: fixed; /* Fija el logo en la pantalla */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Alineación perfecta en el centro */
+    background-color: black; /* Fondo negro (opcional) */
+    z-index: 10; /* Asegura que el logo esté por encima de otros elementos */
+    height: 100%; /* Ocupa todo el alto de la pantalla */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    display: flex; /* Utiliza flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    opacity: 1; /* Inicialmente visible */
+}
+
+/* Estilo del logo que se usará en la animación */
+.logo-animated {
+    max-height: 4cm; /* Altura máxima del logo */
+    filter: invert(1); /* Invertir colores del logo (opcional) */
+    transition: transform 2s ease-out, opacity 2s ease-out; /* Transiciones suaves */
+}
